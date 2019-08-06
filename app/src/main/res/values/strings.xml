@@ -2,4 +2,5 @@
     <string name="app_name">Shopping Cart</string>
     <string name="totPrice_tv">Total Price =</string>
     <string name="proceed_checkout">Proceed to Checkout</string>
+    <string name="app_signup">Sign-Up</string>
 </resources>
