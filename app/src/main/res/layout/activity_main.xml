@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background">
+
+    <RelativeLayout
+        android:id="@+id/relative11"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient_view">
+
+
+        <TextView
+            android:id="@+id/totprice"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/totPrice_tv"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="20dp"
+            android:textAlignment="center"
+
+            />
+
+    </RelativeLayout>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/cart_list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/relative11"-->
+        <!--android:layout_above="@id/proceed_checkout">-->
+
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+    <Button
+        android:id="@+id/proceed_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/gradient_view"
+        android:drawableLeft="@mipmap/icons8_shopping_cart_38px"
+        android:paddingLeft="20dp"
+        android:text="@string/proceed_checkout"
+        android:textSize="20dp"
+        android:gravity="center" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/gradient_view"
+        android:layout_marginTop="100dp"
+
+
+
+        />
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginTop="175dp"
+        android:layout_marginStart="320dp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/icons8_delete_forever_38px"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="350dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HandBag"
+        android:layout_marginTop="110dp"
+        android:layout_marginStart="5dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/holo_green_dark"
+        />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity = 3"
+        android:layout_marginTop="110dp"
+        android:layout_marginStart="300dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/holo_green_dark"
+        />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price = Rs.150"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="135dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="15dp"
+        />
+
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@drawable/gradient_view"
+        android:layout_marginTop="250dp"
+
+
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LeatherBag"
+        android:layout_marginTop="260dp"
+        android:layout_marginStart="5dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/holo_green_dark"
+        />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity = 1"
+        android:layout_marginTop="260dp"
+        android:layout_marginStart="300dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/holo_green_dark"
+        />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price = Rs.550"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="135dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/icons8_delete_forever_38px"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="350dp"/>
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginTop="325dp"
+        android:layout_marginStart="320dp"/>
+
+
+</RelativeLayout>
