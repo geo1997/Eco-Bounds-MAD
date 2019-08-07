@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signup"
-            android:label="@string/app_signup"></activity>
+        <activity android:name=".login"></activity>
+        <activity
+            android:name=".signup"
+            android:label="@string/app_signup" />
         <activity android:name=".shoppingCart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
