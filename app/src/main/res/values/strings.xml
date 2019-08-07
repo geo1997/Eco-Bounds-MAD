@@ -3,4 +3,9 @@
     <string name="totPrice_tv">Total Price =</string>
     <string name="proceed_checkout">Proceed to Checkout</string>
     <string name="app_signup">Sign-Up</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_conf_password">Confirm password</string>
+    <string name="text_create">Create Account</string>
 </resources>
