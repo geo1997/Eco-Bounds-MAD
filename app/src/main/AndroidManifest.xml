@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".signup"
-            android:label="@string/app_signup"></activity>
+            android:label="@string/app_signup"
+            android:exported="true"></activity>
         <activity android:name=".shoppingCart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
