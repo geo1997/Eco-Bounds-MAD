@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_myprofile"
+            android:icon="@drawable/user_male_circle"
+            android:title="@string/menu_my_account"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_orders"
+            android:icon="@drawable/order_icon"
+            android:title="@string/menu_orders"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_pay"
+            android:icon="@drawable/credit_card"
+            android:title="@string/menu_pay"
+            android:iconTint="@android:color/black"/>
+        <item
+            android:id="@+id/nav_close_profile"
+            android:icon="@drawable/close_account"
+            android:title="@string/menu_close"
+            android:iconTint="@android:color/white"/>
+        <item
+            android:id="@+id/nav_close_logout"
+            android:icon="@drawable/logout_icon"
+            android:title="@string/menu_logout"
+            android:iconTint="@android:color/white"/>
+    </group>
+
+
+
+</menu>
