@@ -6,17 +6,49 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".deletaccount" android:exported="true" android:parentActivityName=".userprofile"></activity>
+        <activity android:name=".MyAccount_new" android:exported="true" android:parentActivityName=".userprofile"/>
         <activity
-            android:name=".homePage"
-            android:label="@string/title_activity_home_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".CompanyProfile"
+            android:exported="true"
+            android:parentActivityName=".userprofile" />
+        <activity
+            android:name=".RegisterCompany"
+            android:exported="true" />
+        <activity
+            android:name=".WelcomePage"
+            android:exported="true" />
+        <activity
+            android:name=".userprofile"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_home"/>
+        <activity
+            android:name=".FinishedProducts"
+            android:exported="true" />
+        <activity
+            android:name=".AddFinishedProducts"
+            android:exported="true"
+            android:label="@string/addFinishedProducts_app_name" />
+        <activity
+            android:name=".checkout"
+            android:exported="true"
+            android:label="@string/checout_app_name"
+            android:parentActivityName=".shoppingCart" />
         <activity
             android:name=".signup"
-            android:label="@string/app_signup" />
-        <activity android:name=".shoppingCart">
+            android:exported="true" />
+        <activity
+            android:name=".shoppingCart"
+            android:exported="true"
+            android:parentActivityName=".userprofile"/>
+        <activity
+            android:name=".login"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

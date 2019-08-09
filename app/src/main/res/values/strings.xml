@@ -1,11 +1,92 @@
 <resources>
-    <string name="app_name">Shopping Cart</string>
+    <string name="app_name">Eco-Bounds</string>
     <string name="totPrice_tv">Total Price =</string>
     <string name="proceed_checkout">Proceed to Checkout</string>
-    <string name="app_signup">Sign-Up</string>
-    <string name="hint_username">Username</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <string name="hint_conf_password">Confirm Password</string>
-    <string name="text_create">Create Account</string>
+    <string name="user_log_btn">Login</string>
+    <string name="tv_already_user">Already a Member ? Login</string>
+    <string name="admin_log">Admin</string>
+    <string name="new_accnt_tv">New Account</string>
+    <string name="confirm_pw">Confirm Password</string>
+    <string name="uname">UserName</string>
+    <string name="new_accnt_btn">Create New account</string>
+    <string name="lap_cov">Laptop cover</string>
+    <string name="Quan3">Quantity = 3</string>
+    <string name="Price150">Price = Rs 150</string>
+    <string name="edit">Edit</string>
+    <string name="handbag">HandBag</string>
+    <string name="Quan1">Quantity = 1</string>
+    <string name="Price550">Price = Rs 550</string>
+    <string name="shipp">Shipping Details</string>
+    <string name="pay">Confirm and Pay</string>
+    <string name="payment_det">Payment Details</string>
+    <string name="checout_app_name">Checkout</string>
+    <string name="get_details">Get Details</string>
+    <string name="cus_name">Name </string>
+    <string name="card_num">Card Number</string>
+    <string name="delv_date">Delivery Date</string>
+
+    --AddFinishedProducts--
+    <string name="add_fin_pro">Add Finished Products</string>
+    <string name="productid">Product ID: </string>
+    <string name="name">Name: </string>
+    <string name="clr">Colour: </string>
+    <string name="price">Price: </string>
+    <string name="add">ADD PRODUCT</string>
+    <string name="addFinishedProducts_app_name">Add Finished Products</string>
+
+    --FinishedProducts--
+    <string name="finished_pro">Finished Products</string>
+    <string name="grbag">Veno Insulated Reusable Grocery Bag</string>
+    <string name="cover">Looptworks Leather iPad Cover</string>
+    <string name="kebag">Keens Harvest Bag</string>
+    <string name="sp">Preserve Cutlery Set</string>
+    <string name="phoneC">Skateback iPhone back</string>
+
+
+    <string name="title_activity_userprofile">userprofile</string>
+
+
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Username</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_my_account">My Account</string>
+    <string name="menu_orders">My Orders</string>
+    <string name="menu_pay">Payment Information</string>
+    <string name="menu_close">Close Account</string>
+    <string name="menu_logout">Log Out</string>
+
+    <string name="fragment_account_title">My Account</string>
+    <string name="acc_name">Name</string>
+    <string name="acc_email">Email</string>
+    <string name="acc_current_pss">Current Password</string>
+    <string name="acc_new_pss">New Password</string>
+    <string name="acc_conf_new_pss">Confirm New Password</string>
+    <string name="acc_update">Update Account</string>
+    <string name="close_warning">Warning</string>
+    <string name="close_text">If you close your account, you will lose access forever</string>
+    <string name="close_button">Close Account</string>
+
+
+    <string name="reg_com">Register Company</string>
+    <string name="reg_com_email">Email</string>
+    <string name="reg_com_name">Company Name</string>
+    <string name="reg_com_add1">Address Line 1</string>
+    <string name="reg_com_add2">Address Line 2</string>
+    <string name="reg_com_add_city">City</string>
+    <string name="reg_com_phone">Phone</string>
+    <string name="reg_com_fax">Fax</string>
+    <string name="reg_com_pass">Password</string>
+    <string name="reg_com_conf_pass">Confirm Password</string>
+    <string name="reg_com_type">Company Type</string>
+    <string name="reg_com_type_coll">Collection Centre</string>
+    <string name="reg_com_type_pro">Production Centre</string>
+
+
 </resources>
