@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".changedthis"></activity>
+        <activity android:name=".Thumalee_Change"></activity>
+        <activity android:name=".changedthis" />
         <activity
             android:name=".deletaccount"
             android:exported="true"
