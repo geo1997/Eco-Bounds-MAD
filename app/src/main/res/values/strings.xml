@@ -9,7 +9,9 @@
     <string name="admin_log">Admin</string>
     <string name="new_accnt_tv">New Account</string>
     <string name="confirm_pw">Confirm Password</string>
-    <string name="uname">UserName</string>
+    <string name="fname">FirstName</string>
+    <string name="lname">LastName</string>
+    <string name="mobnum">MobileNumber</string>
     <string name="new_accnt_btn">Create New account</string>
     <string name="lap_cov">Laptop cover</string>
     <string name="Quan3">Quantity = 3</string>
@@ -26,6 +28,14 @@
     <string name="cus_name">Name </string>
     <string name="card_num">Card Number</string>
     <string name="delv_date">Delivery Date</string>
+
+    --Reg val--
+    <string name="valfname">Enter a valid name</string>
+    <string name="vallname">Enter a valid name</string>
+    <string name="valemail">Enter a valid Email</string>
+    <string name="valphone">Enter a valid phone number</string>
+    <string name="valpass">Enter a valid password</string>
+    <string name="valconfpass">Passwords do not match</string>
 
     --AddFinishedProducts--
     <string name="productid">Product ID: </string>
