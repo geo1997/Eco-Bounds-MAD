@@ -28,11 +28,16 @@ public class userprofile extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Paper.init(this);
+
        /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_userprofile);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
+        //toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = findViewById(R.id.cart);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +46,14 @@ public class userprofile extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View headerView = navigationView.getHeaderView(0);
@@ -96,9 +103,7 @@ public class userprofile extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
 //        //noinspection SimplifiableIfStatement
@@ -115,7 +120,7 @@ public class userprofile extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_myprofile) {
+        if (id == R.id.nav_cart) {
             // Handle the camera action
           Intent prof = new Intent(this,MyAccount_new.class);
           startActivity(prof);
@@ -123,16 +128,18 @@ public class userprofile extends AppCompatActivity
 
         } else if (id == R.id.nav_orders) {
 
-        } else if (id == R.id.nav_pay) {
+        } else if (id == R.id.nav_categories) {
 
-        } else if (id == R.id.nav_close_profile) {
+        } else if (id == R.id.nav_settings) {
 
-            Intent close = new Intent (this,deletaccount.class);
-            startActivity(close);
 
         } else if (id == R.id.nav_close_logout) {
+
+            //Paper.book().destroy();
             Intent login = new Intent(this,login.class);
+            login.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+            finish();
 
         }
 
