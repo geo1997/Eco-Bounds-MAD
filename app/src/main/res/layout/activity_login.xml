@@ -34,8 +34,8 @@
             android:id="@+id/emtv"
             android:layout_width="match_parent"
             android:layout_height="59dp"
-            android:hint="@string/hint_email"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/logphone"
+            android:inputType="phone" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -128,6 +128,16 @@
         android:layout_marginBottom="208dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="188dp"
+        android:text="Rememebr Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

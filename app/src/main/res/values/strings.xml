@@ -29,6 +29,8 @@
     <string name="card_num">Card Number</string>
     <string name="delv_date">Delivery Date</string>
 
+    <string name="logphone">Phone Number</string>
+
     --Reg val--
     <string name="valfname">Enter a valid name</string>
     <string name="vallname">Enter a valid name</string>

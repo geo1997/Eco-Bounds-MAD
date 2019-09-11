@@ -17,11 +17,17 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.example.shoppingcart.Model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
 
@@ -40,6 +46,9 @@ public class login extends AppCompatActivity {
     AwesomeValidation awesomeValidation;
 
     private ProgressBar progressBar;
+
+    private String parentDbname = "Users";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +62,7 @@ public class login extends AppCompatActivity {
         admin_tv=findViewById(R.id.admin_tv);
         emailtv=findViewById(R.id.emtv);
         passtv=findViewById(R.id.pwtv);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
 
@@ -71,9 +80,7 @@ public class login extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser() !=null){
-            //home
-        }
+
 
 
         admin_tv.setOnClickListener(new View.OnClickListener() {
@@ -139,37 +146,17 @@ public class login extends AppCompatActivity {
 
     public void confirmInput(){
 
-        if(validateEmail() | validatePassword()){
+        if(validateEmail() | validatePassword()) {
 
-            String email=emailtv.getText().toString().trim();
-            final String pw=passtv.getText().toString().trim();
+            String phone = emailtv.getText().toString().trim();
+            String pw = passtv.getText().toString().trim();
 
             progressBar.setVisibility(View.VISIBLE);
-           firebaseAuth.signInWithEmailAndPassword(email,pw)
-                   .addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
-                       @Override
-                       public void onComplete(@NonNull Task<AuthResult> task) {
-                           progressBar.setVisibility(View.GONE);
-                           if(!task.isSuccessful()){
-                               if(pw.length()<6){
-                                   textInputPassword.setError("Password is incorrect");
-                               }else{
-                                   Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                               }
-                           }else{
-                               //Toast.makeText(getApplicationContext(),"Login succesful",Toast.LENGTH_SHORT).show();
-                               String input="Email :"+textInputEmail.getEditText().getText().toString();
-                               input +="\n";
-                               input +="Successfully logged In";
 
-                               Toast.makeText(getApplicationContext(),input,Toast.LENGTH_SHORT).show();
-                           }
-                       }
-                   });
+
+            AllowAccessToAccount(phone, pw);
+
         }
-
-
-
     }
 
 
@@ -183,4 +170,40 @@ public class login extends AppCompatActivity {
 
 
 
-}
+
+
+    private void AllowAccessToAccount(final String phone, final String pw) {
+
+        final DatabaseReference RootRef;
+
+        RootRef= FirebaseDatabase.getInstance().getReference();
+
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                progressBar.setVisibility(View.GONE);
+                if(dataSnapshot.child((parentDbname)).child(phone).exists()){
+                    Users usersData = dataSnapshot.child(parentDbname).child(phone).getValue(Users.class);
+
+                    if(usersData.getPhone().equals(phone)){
+                        if(usersData.getPassword().equals(pw)){
+
+                            Toast.makeText(getApplicationContext(),"Login succesful",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"account with this " +phone+" Do not exist",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Create a New Account ",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    }
