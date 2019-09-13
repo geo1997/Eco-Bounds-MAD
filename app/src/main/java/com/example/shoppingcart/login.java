@@ -53,7 +53,7 @@ public class login extends AppCompatActivity {
         admin_tv=findViewById(R.id.admin_tv);
         emailtv=findViewById(R.id.emtv);
         passtv=findViewById(R.id.pwtv);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
 

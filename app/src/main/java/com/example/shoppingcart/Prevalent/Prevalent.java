@@ -4,6 +4,6 @@ import com.example.shoppingcart.Model.Users;
 
 public class Prevalent {
 
-private static Users currentonlineUser;
+public static Users currentonlineUser;
 
 }
