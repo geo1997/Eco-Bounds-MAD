@@ -61,10 +61,10 @@
     <string name="nav_header_title">Username</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_my_account">My Account</string>
+    <string name="menu_cart">My Cart</string>
     <string name="menu_orders">My Orders</string>
-    <string name="menu_pay">Payment Information</string>
-    <string name="menu_close">Close Account</string>
+    <string name="menu_categories">Categories</string>
+    <string name="menu_settings">Settings</string>
     <string name="menu_logout">Log Out</string>
 
     <string name="acc_name">Name</string>

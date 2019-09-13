@@ -131,7 +131,8 @@ public class userprofile extends AppCompatActivity
             startActivity(close);
 
         } else if (id == R.id.nav_close_logout) {
-
+            Intent login = new Intent(this,login.class);
+            startActivity(login);
 
         }
 

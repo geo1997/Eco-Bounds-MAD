@@ -38,4 +38,5 @@ dependencies {
     implementation 'com.basgeekball:awesome-validation:4.2'
     implementation 'io.paperdb:paperdb:2.6'
 
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
 }
