@@ -52,9 +52,12 @@ public class login extends AppCompatActivity {
 
     private ProgressBar progressBar;
 
-    private String parentDbname = "Users";
+    private String parentDbname="Users";
 
     private CheckBox remmebr;
+
+
+    private TextView admin,user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,11 @@ public class login extends AppCompatActivity {
         Paper.init(this);
 
         log_user=findViewById(R.id.log_btn);
+
+        admin=findViewById(R.id.admin_tv);
+        user=findViewById(R.id.LinkForUser);
+
+        user.setVisibility(View.INVISIBLE);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -120,6 +128,31 @@ public class login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Already Logged In",Toast.LENGTH_SHORT).show();
             }
         }
+
+
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                   log_user.setText("Login Admin");
+                   admin.setVisibility(v.INVISIBLE);
+                   user.setVisibility(v.VISIBLE);
+                   parentDbname = "Admins";
+
+            }
+
+
+        });
+
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                log_user.setText("Login");
+                admin.setVisibility(View.VISIBLE);
+                user.setVisibility(View.INVISIBLE);
+                parentDbname = "Users";
+            }
+        });
     }
 
     private void AllowAccess(final String phone, final String pw) {
@@ -239,15 +272,25 @@ public class login extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 progressBar.setVisibility(View.GONE);
+
                 if(dataSnapshot.child((parentDbname)).child(phone).exists()){
                     Users usersData = dataSnapshot.child(parentDbname).child(phone).getValue(Users.class);
 
                     if(usersData.getPhone().equals(phone)){
-                        if(usersData.getPassword().equals(pw)){
 
-                            Toast.makeText(getApplicationContext(),"Login succesful",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(login.this,userprofile.class);
-                            startActivity(intent);
+                        if(usersData.getPassword().equals(pw)) {
+
+                            if (parentDbname.equals("Admins")) {
+                                Toast.makeText(getApplicationContext(), "Admin-Login succesful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(login.this, AdminActivity.class);
+                                startActivity(intent);
+                            } else if(parentDbname.equals("Users")) {
+                                Toast.makeText(getApplicationContext(), "Login succesful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(login.this, userprofile.class);
+                                startActivity(intent);
+                            }
+
+
                         }else{
                             Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT).show();
                         }

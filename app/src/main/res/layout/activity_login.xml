@@ -103,21 +103,11 @@
         android:id="@+id/admin_tv"
         android:layout_width="41dp"
         android:layout_height="25dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginBottom="56dp"
         android:text="@string/admin_log"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="44dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icons8_administrator_male_38px_2" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -136,6 +126,16 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="236dp"
         android:text="Remember Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/LinkForUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="60dp"
+        android:text="I am Not an Admin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
