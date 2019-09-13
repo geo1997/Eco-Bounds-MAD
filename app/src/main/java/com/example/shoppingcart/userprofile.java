@@ -19,6 +19,8 @@ import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import io.paperdb.Paper;
+
 public class userprofile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -115,7 +117,7 @@ public class userprofile extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_myprofile) {
+        if (id == R.id.nav_cart) {
             // Handle the camera action
           Intent prof = new Intent(this,MyAccount_new.class);
           startActivity(prof);
@@ -123,16 +125,19 @@ public class userprofile extends AppCompatActivity
 
         } else if (id == R.id.nav_orders) {
 
-        } else if (id == R.id.nav_pay) {
+        } else if (id == R.id.nav_categories) {
 
-        } else if (id == R.id.nav_close_profile) {
+        } else if (id == R.id.nav_settings) {
 
-            Intent close = new Intent (this,deletaccount.class);
-            startActivity(close);
+
 
         } else if (id == R.id.nav_close_logout) {
+            Paper.book().destroy();
+
             Intent login = new Intent(this,login.class);
+            login.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+            finish();
 
         }
 
