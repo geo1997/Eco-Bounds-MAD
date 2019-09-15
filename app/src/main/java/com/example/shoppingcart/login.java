@@ -173,6 +173,9 @@ public class login extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(),"Login succesful",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(login.this,userprofile.class);
+                            Prevalent.currentonlineUser = usersData;
+                            System.out.println(Prevalent.currentonlineUser);
+
                             startActivity(intent);
                         }else{
                             Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT).show();
@@ -286,7 +289,9 @@ public class login extends AppCompatActivity {
                                 startActivity(intent);
                             } else if(parentDbname.equals("Users")) {
                                 Toast.makeText(getApplicationContext(), "Login succesful", Toast.LENGTH_SHORT).show();
+
                                 Intent intent = new Intent(login.this, userprofile.class);
+                                Prevalent.currentonlineUser = usersData;
                                 startActivity(intent);
                             }
 

@@ -19,6 +19,10 @@ import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.shoppingcart.Prevalent.Prevalent;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
 public class userprofile extends AppCompatActivity
@@ -53,9 +57,10 @@ public class userprofile extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
-        ImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
+        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-
+        userNameTextView.setText(Prevalent.currentonlineUser.getFirstName());
+        Picasso.get().load(Prevalent.currentonlineUser.getImage()).placeholder(R.drawable.contacts_30px).into(profileImageView);
 
 
         cart=findViewById(R.id.cart);
@@ -118,16 +123,14 @@ public class userprofile extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cart) {
-            // Handle the camera action
-          Intent prof = new Intent(this,MyAccount_new.class);
-          startActivity(prof);
-
 
         } else if (id == R.id.nav_orders) {
 
         } else if (id == R.id.nav_categories) {
 
         } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(this,Settings.class);
+            startActivity(intent);
 
 
 
