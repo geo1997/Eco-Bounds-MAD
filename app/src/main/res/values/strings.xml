@@ -67,13 +67,13 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Log Out</string>
 
+    <string name="acc_cancel">Cancel</string>
+    <string name="acc_update">Update</string>
+    <string name="acc_pic">Profile Picture</string>
     <string name="acc_name">Name</string>
+    <string name="acc_phone">Phone Number</string>
     <string name="acc_email">Email</string>
-    <string name="acc_current_pss">Current Password</string>
-    <string name="acc_new_pss">New Password</string>
-    <string name="acc_conf_new_pss">Confirm New Password</string>
-    <string name="acc_update">Update Account</string>
-    <string name="close_warning">Warning</string>
+    <string name="acc_address">Address</string>
     <string name="close_text">If you close your account, you will lose access forever</string>
     <string name="close_button">Close Account</string>
 

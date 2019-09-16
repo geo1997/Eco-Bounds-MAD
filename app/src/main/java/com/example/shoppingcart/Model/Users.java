@@ -2,38 +2,42 @@ package com.example.shoppingcart.Model;
 
 public class Users {
 
-    private String Firstname;
-    private String Lastname;
+    private String FirstName;
+    private String LastName;
     private String Email;
     private String Phone;
     private String password;
+    private String address;
+    private String image;
 
 
     public Users() {
     }
 
-    public Users(String firstname, String lastname, String email, String phone, String password) {
-        Firstname = firstname;
-        Lastname = lastname;
+    public Users(String firstName, String lastName, String email, String phone, String password, String address, String image) {
+        FirstName = firstName;
+        LastName = lastName;
         Email = email;
         Phone = phone;
         this.password = password;
+        this.address = address;
+        this.image = image;
     }
 
-    public String getFirstname() {
-        return Firstname;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public void setFirstname(String firstname) {
-        Firstname = firstname;
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
     }
 
-    public String getLastname() {
-        return Lastname;
+    public String getLastName() {
+        return LastName;
     }
 
-    public void setLastname(String lastname) {
-        Lastname = lastname;
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
     public String getEmail() {
@@ -58,5 +62,21 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
