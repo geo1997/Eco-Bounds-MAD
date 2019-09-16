@@ -76,21 +76,32 @@
         />
 
     <EditText
-        android:id="@+id/acc_name"
+    android:id="@+id/acc_fname"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/profile_pic"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="17dp"
+    android:layout_marginEnd="20dp"
+    android:hint="@string/acc_fname"
+    android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/acc_lname"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_pic"
+        android:layout_below="@+id/acc_fname"
         android:layout_marginStart="20dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/acc_name"
+        android:hint="@string/acc_lname"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_phone"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/acc_name"
+        android:layout_below="@+id/acc_lname"
         android:layout_marginStart="20dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="20dp"

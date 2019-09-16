@@ -35,7 +35,7 @@ public class Settings extends AppCompatActivity {
 
     private CircleImageView profileImageView;
     private TextView closeAcc,updateAcc,profilePic;
-    private EditText etname,etphone,etemail,etaddress;
+    private EditText etfname,etlname,etphone,etemail,etaddress;
 
     private Uri imageUri;
     private String myUrl = "";
@@ -55,12 +55,13 @@ public class Settings extends AppCompatActivity {
         profilePic = findViewById(R.id.profile_pic);
         closeAcc = findViewById((R.id.close_settings));
         updateAcc = findViewById(R.id.update_settings);
-        etname = findViewById(R.id.acc_name);
+        etfname = findViewById(R.id.acc_fname);
+        etlname = findViewById(R.id.acc_lname);
         etphone = findViewById(R.id.acc_phone);
         etaddress = findViewById(R.id.acc_address);
         etemail = findViewById(R.id.acc_email);
 
-        userInfoDisplay(profileImageView,etname,etphone,etemail,etaddress);
+        userInfoDisplay(profileImageView,etfname,etlname,etphone,etemail,etaddress);
 
         closeAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,10 +101,11 @@ public class Settings extends AppCompatActivity {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
 
         HashMap<String,Object> userMAp = new HashMap<>();
-        userMAp.put("name",etname.getText().toString());
-        userMAp.put("phone",etphone.getText().toString());
-        userMAp.put("email",etemail.getText().toString());
-        userMAp.put("address",etaddress.getText().toString());
+        userMAp.put("FirstName",etfname.getText().toString());
+        userMAp.put("LastName",etlname.getText().toString());
+        userMAp.put("Phone",etphone.getText().toString());
+        userMAp.put("Email",etemail.getText().toString());
+        userMAp.put("Address",etaddress.getText().toString());
         ref.child(Prevalent.currentonlineUser.getPhone()).updateChildren(userMAp);
 
         startActivity(new Intent(Settings.this,userprofile.class));
@@ -113,11 +115,11 @@ public class Settings extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && requestCode==RESULT_OK && data!=null)
+        if (requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK && data!=null)
         {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             imageUri = result.getUri();
@@ -133,9 +135,13 @@ public class Settings extends AppCompatActivity {
 
     private void userInfoSaved()
     {
-        if (TextUtils.isEmpty((etname.getText().toString())))
+        if (TextUtils.isEmpty((etfname.getText().toString())))
         {
-            Toast.makeText(this,"Name is mandatory",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"First Name is mandatory",Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty((etlname.getText().toString())))
+        {
+            Toast.makeText(this,"Last Name is mandatory",Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty((etphone.getText().toString())))
         {
@@ -158,7 +164,7 @@ public class Settings extends AppCompatActivity {
     private void uploadImage() {
         if (imageUri != null)
         {
-            final StorageReference fileRef = storageProfilePictureRef.child(Prevalent.currentonlineUser.getPhone()+".jpg");
+            final StorageReference fileRef = storageProfilePictureRef.child(Prevalent.currentonlineUser.getPhone() + ".jpg");
 
             uploadTask = fileRef.putFile(imageUri);
 
@@ -169,6 +175,7 @@ public class Settings extends AppCompatActivity {
                     if (!task.isSuccessful())
                     {
                         throw task.getException();
+
                     }
 
                     return fileRef.getDownloadUrl();
@@ -185,11 +192,12 @@ public class Settings extends AppCompatActivity {
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
 
                                 HashMap<String,Object> userMAp = new HashMap<>();
-                                userMAp.put("name",etname.getText().toString());
-                                userMAp.put("phone",etphone.getText().toString());
-                                userMAp.put("email",etemail.getText().toString());
-                                userMAp.put("address",etaddress.getText().toString());
-                                userMAp.put("image",myUrl);
+                                userMAp.put("FirstName",etfname.getText().toString());
+                                userMAp.put("LastName",etlname.getText().toString());
+                                userMAp.put("Phone",etphone.getText().toString());
+                                userMAp.put("Email",etemail.getText().toString());
+                                userMAp.put("Address",etaddress.getText().toString());
+                                userMAp.put("Image",myUrl);
                                 ref.child(Prevalent.currentonlineUser.getPhone()).updateChildren(userMAp);
 
                                 startActivity(new Intent(Settings.this,userprofile.class));
@@ -207,9 +215,10 @@ public class Settings extends AppCompatActivity {
         {
             Toast.makeText(this,"Image not selected",Toast.LENGTH_SHORT).show();
         }
+
     }
 
-    private void userInfoDisplay(final CircleImageView profileImageView, final EditText etname, final EditText etphone, final EditText etemail, final EditText etaddress) {
+    private void userInfoDisplay(final CircleImageView profileImageView, final EditText etfname,final EditText etlname, final EditText etphone, final EditText etemail, final EditText etaddress) {
 
         DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentonlineUser.getPhone());
 
@@ -218,19 +227,21 @@ public class Settings extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists())
                 {
-                     if (dataSnapshot.child("image").exists())
+                     if (dataSnapshot.child("Image").exists())
                      {
-                         String image = dataSnapshot.child("image").getValue().toString();
-                         String name = dataSnapshot.child("name").getValue().toString();
-                         String phone = dataSnapshot.child("phone").getValue().toString();
-                         String email = dataSnapshot.child("email").getValue().toString();
-                         String address = dataSnapshot.child("image").getValue().toString();
+                         String image = dataSnapshot.child("Image").getValue().toString();
+                         String fname = dataSnapshot.child("FirstName").getValue().toString();
+                         String lname = dataSnapshot.child("LastName").getValue().toString();
+                         String phone = dataSnapshot.child("Phone").getValue().toString();
+                         String email = dataSnapshot.child("Email").getValue().toString();
+                         String address = dataSnapshot.child("Address").getValue().toString();
 
 
 
 
                          Picasso.get().load(image).into(profileImageView);
-                         etname.setText(name);
+                         etfname.setText(fname);
+                         etlname.setText(lname);
                          etphone.setText(phone);
                          etemail.setText(email);
                          etaddress.setText(address);
