@@ -7,8 +7,8 @@ public class Users {
     private String Email;
     private String Phone;
     private String password;
-    private String address;
-    private String image;
+    private String Address;
+    private String Image;
 
 
     public Users() {
@@ -20,8 +20,8 @@ public class Users {
         Email = email;
         Phone = phone;
         this.password = password;
-        this.address = address;
-        this.image = image;
+        Address = address;
+        Image = image;
     }
 
     public String getFirstName() {
@@ -65,18 +65,18 @@ public class Users {
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public String getImage() {
-        return image;
+        return Image;
     }
 
     public void setImage(String image) {
-        this.image = image;
+        Image = image;
     }
 }

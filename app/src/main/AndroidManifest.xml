@@ -16,7 +16,8 @@
         <activity android:name=".AdminActivity"></activity>
         <activity android:name=".AdminCategoryActivity"
             android:exported="true"></activity>
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".CompanyProfile"
             android:exported="true"
