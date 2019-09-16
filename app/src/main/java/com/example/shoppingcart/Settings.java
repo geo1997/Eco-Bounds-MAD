@@ -227,6 +227,8 @@ public class Settings extends AppCompatActivity {
                          String address = dataSnapshot.child("image").getValue().toString();
 
 
+
+
                          Picasso.get().load(image).into(profileImageView);
                          etname.setText(name);
                          etphone.setText(phone);
