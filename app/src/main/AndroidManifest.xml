@@ -10,15 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminActivity"></activity>
-        <activity
-            android:name=".deletaccount"
-            android:exported="true"
-            android:parentActivityName=".userprofile" />
-        <activity
-            android:name=".MyAccount_new"
-            android:exported="true"
-            android:parentActivityName=".userprofile" />
+        <activity android:name=".ProductDetailsActivity"></activity>
+        <activity android:name=".AdminActivity" />
+
+
         <activity
             android:name=".CompanyProfile"
             android:exported="true"
@@ -34,9 +29,6 @@
             android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FinishedProducts"
-            android:exported="true" />
         <activity
             android:name=".AddFinishedProducts"
             android:exported="true"

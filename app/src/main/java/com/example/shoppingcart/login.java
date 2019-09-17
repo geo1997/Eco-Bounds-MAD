@@ -195,10 +195,6 @@ public class login extends AppCompatActivity {
         });
     }
 
-    public void gotoFinishedProducts(){
-        Intent finished_products = new Intent(this,FinishedProducts.class);
-        startActivity(finished_products);
-    }
 
     public void gotoaddproduct(){
         Intent admin_addproduct = new Intent(this,AddFinishedProducts.class);
