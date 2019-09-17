@@ -70,7 +70,8 @@
     <string name="acc_cancel">Cancel</string>
     <string name="acc_update">Update</string>
     <string name="acc_pic">Profile Picture</string>
-    <string name="acc_name">Name</string>
+    <string name="acc_fname">First Name</string>
+    <string name="acc_lname">Last Name</string>
     <string name="acc_phone">Phone Number</string>
     <string name="acc_email">Email</string>
     <string name="acc_address">Address</string>
