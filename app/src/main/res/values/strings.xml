@@ -92,5 +92,34 @@
     <string name="reg_com_type_coll">Collection Centre</string>
     <string name="reg_com_type_pro">Production Centre</string>
 
+    <string name="Shopping_tot_price">Total Price =</string>
+    <string name="shopping_next">Next</string>
+    <string name="prod_name_shopping">Product Name</string>
+    <string name="prod_quan_shopping">Product Quantity</string>
+    <string name="prod_price_shopping">Product Price</string>
+    <string name="ConfrimedMsg">Your Final Order Has Been Placed. Soon it Will be Verified</string>
 
+
+    <string name="confirmOrderShippingDetails">Please Enter your Shipping Details</string>
+    <string name="confirmorderhint_fname">Your First Name</string>
+    <string name="confirmorderhint_lname">Your Last Name</string>
+    <string name="confirmorderhint_phoneNum">Your Phone Number</string>
+    <string name="confirmOrderaddress_hint">Your Home Address</string>
+    <string name="confirmmOrderaddress_city_hint">Your City</string>
+    <string name="confirmmOrder">Confirm Order</string>
+
+
+
+    <string name="admindash">Admin DashBoard</string>
+    <string name="admin_addproducts">Add Products</string>
+    <string name="admin_orders">View Orders</string>
+    <string name="admin_logout">Log Out</string>
+
+
+
+    <string name="admin_new_orders">New Orders</string>
+    <string name="fname_username">First Name</string>
+    <string name="address_city">Address, City</string>
+    <string name="date_time">Date Time</string>
+    <string name="Show_order_admin">Show Order</string>
 </resources>

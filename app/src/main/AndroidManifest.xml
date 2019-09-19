@@ -10,16 +10,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProductDetailsActivity"></activity>
+        <activity android:name=".AdminNewOrdersActivity"></activity>
+        <activity
+            android:name=".ConfirmFinalOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".cartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProductDetailsActivity"
+            android:exported="true" />
         <activity android:name=".AdminActivity" />
-
-        <activity android:name=".Settings"
-            android:exported="true"></activity>
-
-        <activity android:name=".AdminCategoryActivity"
-            android:exported="true">
-
-        </activity>
+        <activity
+            android:name=".Settings"
+            android:exported="true" />
+        <activity
+            android:name=".AdminCategoryActivity"
+            android:exported="true" />
         <activity
             android:name=".CompanyProfile"
             android:exported="true"
@@ -40,17 +47,8 @@
             android:exported="true"
             android:label="@string/addFinishedProducts_app_name" />
         <activity
-            android:name=".checkout"
-            android:exported="true"
-            android:label="@string/checout_app_name"
-            android:parentActivityName=".shoppingCart" />
-        <activity
             android:name=".signup"
             android:exported="true" />
-        <activity
-            android:name=".shoppingCart"
-            android:exported="true"
-            android:parentActivityName=".userprofile" />
         <activity
             android:name=".login"
             android:exported="true">

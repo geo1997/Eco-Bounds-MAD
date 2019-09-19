@@ -11,6 +11,10 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView bags, phoneCovers, shoes, bottles;
     private ImageView jackets, tshirts, dresses, trousers;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
