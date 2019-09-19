@@ -52,6 +52,7 @@ public class userprofile extends AppCompatActivity
        /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_userprofile);
+        recyclerView=findViewById(R.id.recycler_menu);
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -95,7 +96,7 @@ public class userprofile extends AppCompatActivity
         });
 
 
-        recyclerView = findViewById(R.id.recycler_menu);
+
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -199,7 +200,9 @@ public class userprofile extends AppCompatActivity
 
         if (id == R.id.nav_cart) {
 
-        } else if (id == R.id.nav_orders) {
+        } else if (id == R.id.nav_search) {
+            Intent intent = new Intent(this,Search.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_categories) {
 
