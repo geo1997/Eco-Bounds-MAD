@@ -13,6 +13,10 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView jackets, tshirts, dresses, trousers;
     
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

@@ -281,7 +281,7 @@ public class login extends AppCompatActivity {
 
                             if (parentDbname.equals("Admins")) {
                                 Toast.makeText(getApplicationContext(), "Admin-Login succesful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(login.this, AdminCategoryActivity.class);
+                                Intent intent = new Intent(login.this, AdminActivity.class);
                                 startActivity(intent);
                             } else if(parentDbname.equals("Users")) {
                                 Toast.makeText(getApplicationContext(), "Login succesful", Toast.LENGTH_SHORT).show();
