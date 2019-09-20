@@ -122,4 +122,7 @@
     <string name="address_city">Address, City</string>
     <string name="date_time">Date Time</string>
     <string name="Show_order_admin">Show Order</string>
+
+   <string name="prod_search">Product Name</string>
+    <string name="search_btn">Search</string>
 </resources>
