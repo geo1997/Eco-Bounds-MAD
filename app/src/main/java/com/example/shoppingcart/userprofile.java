@@ -52,6 +52,7 @@ public class userprofile extends AppCompatActivity
        /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_userprofile);
+        recyclerView=findViewById(R.id.recycler_menu);
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -62,8 +63,8 @@ public class userprofile extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userprofile.this,cartActivity.class);
-                startActivity(intent);
+               Intent intent = new Intent(userprofile.this,cartActivity.class);
+               startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -89,7 +90,8 @@ public class userprofile extends AppCompatActivity
 
 
 
-        recyclerView = findViewById(R.id.recycler_menu);
+
+
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -149,7 +151,6 @@ public class userprofile extends AppCompatActivity
     }
 
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -190,11 +191,9 @@ public class userprofile extends AppCompatActivity
 
         if (id == R.id.nav_cart) {
 
-            Intent intent = new Intent(userprofile.this,cartActivity.class);
+        } else if (id == R.id.nav_search) {
+            Intent intent = new Intent(this,Search.class);
             startActivity(intent);
-
-
-        } else if (id == R.id.nav_orders) {
 
         } else if (id == R.id.nav_categories) {
 

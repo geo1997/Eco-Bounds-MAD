@@ -28,7 +28,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="65dp">
 
         <ImageView
             android:id="@+id/i1"
@@ -64,7 +64,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="65dp">
 
         <ImageView
             android:id="@+id/i5"
@@ -76,7 +76,7 @@
             android:id="@+id/i6"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:src="@drawable/tshirt"/>
+            android:src="@drawable/tshirt" />
 
         <ImageView
             android:id="@+id/i7"
@@ -91,4 +91,7 @@
             android:src="@drawable/trousers"/>
 
     </LinearLayout>
+
+
+
 </RelativeLayout>
