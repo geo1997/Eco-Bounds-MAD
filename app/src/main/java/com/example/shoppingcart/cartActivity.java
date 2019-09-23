@@ -41,6 +41,9 @@ public class cartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setContentView(R.layout.activity_cart);
 
 
@@ -62,7 +65,7 @@ public class cartActivity extends AppCompatActivity {
 
 
 
-                Intent intent = new Intent(cartActivity.this,ConfirmFinalOrderActivity.class);
+                Intent intent = new Intent(cartActivity.this,PaymentActivity.class);
                 intent.putExtra("Total Price",String.valueOf(overallTotPrice));
                 startActivity(intent);
                 finish();
@@ -219,4 +222,7 @@ public class cartActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

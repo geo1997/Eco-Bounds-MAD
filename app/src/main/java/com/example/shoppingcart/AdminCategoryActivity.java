@@ -11,17 +11,28 @@ public class AdminCategoryActivity extends AppCompatActivity {
 
     private ImageView bags, phoneCovers, shoes, bottles;
     private ImageView jackets, tshirts, dresses, trousers;
-    
 
+    private Button maintainProductBtn;
 
-
-
+    private String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
+
+        maintainProductBtn =  (Button) findViewById(R.id.maintain_product_btn);
+
+        //getIntent().getExtras().get("Admins").toString();
+        maintainProductBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryActivity.this,userprofile.class);
+                intent.putExtra("Admins","Admins");
+                startActivity(intent);
+            }
+        });
 
 
         bags = (ImageView) findViewById(R.id.i1);
@@ -122,6 +133,12 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

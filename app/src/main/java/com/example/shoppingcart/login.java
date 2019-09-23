@@ -1,5 +1,6 @@
 package com.example.shoppingcart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -50,35 +51,39 @@ public class login extends AppCompatActivity {
 
     AwesomeValidation awesomeValidation;
 
-    private ProgressBar progressBar;
+
 
     private String parentDbname="Users";
 
     private CheckBox remmebr;
 
+    private TextView forgetPasswordLink;
 
     private TextView admin,user;
+
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getSupportActionBar().setTitle("Login");
+        //getSupportActionBar().setTitle("Login");
 
+        loadingBar=new ProgressDialog(this);
         textInputEmail=findViewById(R.id.text_input_email);
         textInputPassword=findViewById((R.id.text_input_password));
         newaccnt=findViewById(R.id.new_accnt_tv);
         admin_tv=findViewById(R.id.admin_tv);
         emailtv=findViewById(R.id.emtv);
         passtv=findViewById(R.id.pwtv);
-        progressBar = findViewById(R.id.progressBar2);
-        progressBar.setVisibility(View.GONE);
 
-        remmebr=findViewById(R.id.rememberchekbox);
+        forgetPasswordLink = findViewById(R.id.forgetPasswordLink);
+
+        remmebr=findViewById(R.id.remembermechekbox);
         Paper.init(this);
 
-        log_user=findViewById(R.id.log_btn);
+        log_user=findViewById(R.id.btnlog);
 
         admin=findViewById(R.id.admin_tv);
         user=findViewById(R.id.LinkForUser);
@@ -97,6 +102,11 @@ public class login extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
 
 
+        View decorView=getWindow().getDecorView();
+
+        int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN ;
+
+        decorView.setSystemUiVisibility(uiOptions);
 
 
         admin_tv.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +163,17 @@ public class login extends AppCompatActivity {
                 parentDbname = "Users";
             }
         });
+
+
+        forgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(login.this,ResetPassword.class);
+                intent.putExtra("check","login");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void AllowAccess(final String phone, final String pw) {
@@ -164,7 +185,7 @@ public class login extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                progressBar.setVisibility(View.GONE);
+                loadingBar.dismiss();
                 if(dataSnapshot.child(("Users")).child(phone).exists()){
                     Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
 
@@ -236,7 +257,11 @@ public class login extends AppCompatActivity {
             String phone = emailtv.getText().toString().trim();
             String pw = passtv.getText().toString().trim();
 
-            progressBar.setVisibility(View.VISIBLE);
+            loadingBar.setTitle("Logging In");
+            loadingBar.setMessage("Please Wait...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
+
 
 
             AllowAccessToAccount(phone, pw);
@@ -270,7 +295,7 @@ public class login extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                progressBar.setVisibility(View.GONE);
+                loadingBar.dismiss();
 
                 if(dataSnapshot.child((parentDbname)).child(phone).exists()){
                     Users usersData = dataSnapshot.child(parentDbname).child(phone).getValue(Users.class);
@@ -309,4 +334,9 @@ public class login extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+
     }
+}

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Search">
+    tools:context=".Search"
+    android:background="@drawable/background_login_signup">
 
     <RelativeLayout
         android:id="@+id/relative5"
@@ -44,6 +45,6 @@
         android:id="@+id/search_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relative5"/>
+        android:layout_below="@+id/relative5" />
 
 </RelativeLayout>

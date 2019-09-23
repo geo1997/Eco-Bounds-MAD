@@ -9,7 +9,7 @@ import android.widget.Button;
 public class AdminActivity extends AppCompatActivity {
 
 
-    private Button loutBtn,checkOrderButton,addProductsBtn;
+    private Button loutBtn,checkOrderButton,addProductsBtn,centerAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class AdminActivity extends AppCompatActivity {
         loutBtn=findViewById(R.id.admin_logout);
         checkOrderButton=findViewById(R.id.ViewOrders_btn);
         addProductsBtn=findViewById(R.id.Productadd_btn);
-
+        centerAdd= findViewById(R.id.Centersadd_btn);
 
         loutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +47,15 @@ public class AdminActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(AdminActivity.this,AdminCategoryActivity.class);
+                //intent.putExtra("Admins","Admins");
+                startActivity(intent);
+            }
+        });
+
+        centerAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this,CompanyList.class);
 
                 startActivity(intent);
             }
@@ -55,5 +64,8 @@ public class AdminActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
 
+    }
 }

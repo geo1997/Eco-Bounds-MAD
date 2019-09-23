@@ -60,13 +60,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et3"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
         android:text="Add Product"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:padding="17dp"
         android:layout_marginTop="30dp"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:background="@drawable/buttons"/>
+        android:background="@drawable/background_login_signup"/>
 </RelativeLayout>

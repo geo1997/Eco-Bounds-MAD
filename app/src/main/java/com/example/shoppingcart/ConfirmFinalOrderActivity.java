@@ -1,5 +1,6 @@
 package com.example.shoppingcart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -28,11 +29,13 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private String totalAmount ="";
 
+    private ProgressDialog loadingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_final_order);
 
+        loadingBar=new ProgressDialog(this);
         confirmOrderButton=findViewById(R.id.confrim_btn_finalOrder);
         fnameEditText=findViewById(R.id.confirmorder_shipmentfName);
         lnameEditText=findViewById(R.id.confirmorder_shipmentlName);
@@ -49,6 +52,10 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         confirmOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loadingBar.setTitle("Placing Your Order");
+                loadingBar.setMessage("Please Wait...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
                 Check();
             }
         });
@@ -58,18 +65,23 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private void Check() {
         if(TextUtils.isEmpty(fnameEditText.getText().toString())){
+            loadingBar.dismiss();
             Toast.makeText(this, "Please provide your First Name ", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(lnameEditText.getText().toString())){
+            loadingBar.dismiss();
             Toast.makeText(this, "Please provide your Last Name ", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phoneEditText.getText().toString())){
+            loadingBar.dismiss();
             Toast.makeText(this, "Please provide your Phone Number ", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(addressEditText.getText().toString())){
+            loadingBar.dismiss();
             Toast.makeText(this, "Please provide your Home Address ", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(cityEditText.getText().toString())){
+            loadingBar.dismiss();
             Toast.makeText(this, "Please provide your City Name", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -111,6 +123,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    loadingBar.dismiss();
                     FirebaseDatabase.getInstance().getReference().
                             child("Cart List")
                             .child("User View")
@@ -137,5 +150,13 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(ConfirmFinalOrderActivity.this,PaymentActivity.class);
+        startActivity(intent);
     }
 }

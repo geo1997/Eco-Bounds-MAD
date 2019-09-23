@@ -1,225 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterCompany"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/background_login_signup">
+
+    <ImageView
+        android:id="@+id/regi_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/sellerlogin"/>
 
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="415dp"
-        android:layout_height="707dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <android.support.v7.widget.CardView
+        android:layout_below="@+id/regi_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardElevation="10dp">
 
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_email"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            app:layout_constraintEnd_toStartOf="@+id/editText9"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyType"
+                android:layout_margin="15dp"
+                android:background="@drawable/background_login_signup"
+                android:text="@string/Register_Company"
+                android:textColor="@color/white"/>
 
-        <EditText
-            android:id="@+id/editText9"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_name"
+            <EditText
+                android:id="@+id/companyEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyName"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/Form_Company_Email"
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                android:textSize="14sp" />
 
-            app:layout_constraintEnd_toStartOf="@+id/editText10"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText8" />
+            <EditText
+                android:id="@+id/companyCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyEmail"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/Form_Company_City"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/editText10"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_add1"
+            <EditText
+                android:id="@+id/companyPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyCity"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/Company_Phone"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textSize="14sp" />
 
-            app:layout_constraintEnd_toStartOf="@+id/editText11"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText9" />
+            <EditText
+                android:id="@+id/companyFaxNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyPhone"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/Company_Fax"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/editText11"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_fax"
-
-            app:layout_constraintEnd_toStartOf="@+id/editText16"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText10"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText15" />
-
-        <EditText
-            android:id="@+id/editText16"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_conf_pass"
-
-            app:layout_constraintEnd_toStartOf="@+id/editText17"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText17" />
-
-        <EditText
-            android:id="@+id/editText17"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_pass"
-
-            app:layout_constraintEnd_toStartOf="@+id/editText15"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText16"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText11" />
-
-        <EditText
-            android:id="@+id/editText15"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_phone"
-
-            app:layout_constraintEnd_toStartOf="@+id/editText13"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText17"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText13" />
-
-        <EditText
-            android:id="@+id/editText13"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_add_city"
-
-            app:layout_constraintEnd_toStartOf="@+id/editText12"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText15"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText12" />
-
-        <EditText
-            android:id="@+id/editText12"
-            android:layout_width="383dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="508dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/reg_com_add2"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/editText13"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText10" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/reg_com_type"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText16" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="60dp"
-            android:text="@string/reg_com_type_coll"
-            app:layout_constraintBottom_toTopOf="@+id/btnsbmt"
-            app:layout_constraintEnd_toStartOf="@+id/checkBox2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="76dp"
-            android:text="@string/reg_com_type_pro"
-            app:layout_constraintBottom_toTopOf="@+id/btnsbmt"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/checkBox"
-            app:layout_constraintTop_toTopOf="@+id/checkBox"
-            app:layout_constraintVertical_bias="0.333" />
-
-        <Button
-            android:id="@+id/btnsbmt"
-            android:layout_width="185dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="72dp"
-            android:onClick="onClick"
-            android:text="Submit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/back_home"
-            android:layout_width="251dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="80dp"
-            android:text="Back to HomePage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnsbmt" />
+            <EditText
+                android:id="@+id/companyType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/companyFaxNum"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="40dp"
+                android:hint="@string/Form_Company_Type"
+                android:padding="20dp"
+                android:textSize="14sp" />
 
 
-    </android.support.constraint.ConstraintLayout>
+            <EditText
+                android:id="@+id/companyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/Company_Name"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
 
 
-
-</android.support.constraint.ConstraintLayout>

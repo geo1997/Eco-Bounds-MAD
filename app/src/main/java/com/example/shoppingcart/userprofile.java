@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shoppingcart.Model.Products;
+import com.example.shoppingcart.Model.Users;
 import com.example.shoppingcart.Prevalent.Prevalent;
 import com.example.shoppingcart.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -43,44 +44,84 @@ public class userprofile extends AppCompatActivity
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    private String type = "";
+
+
     private FloatingActionButton cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(R.layout.activity_userprofile);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null)
+        {
+            type = getIntent().getExtras().get("Admins").toString();
+        }
+
+
+
         recyclerView=findViewById(R.id.recycler_menu);
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+        Paper.init(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.cart);
+        final FloatingActionButton fab = findViewById(R.id.cart);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-               Intent intent = new Intent(userprofile.this,cartActivity.class);
-               startActivity(intent);
+            public void onClick(View view)
+            {
+                if(!type.equals("Admins"))
+                {
+                    Intent intent = new Intent(userprofile.this,cartActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    fab.setEnabled(false);
+                }
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        View headerView = navigationView.getHeaderView(0);
-        TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
-        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
+//        View headerView = navigationView.getHeaderView(0);
+//        TextView userNameTextView = headerView.findViewById(R.id.user_profile_n);
+//        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_i);
 
-        userNameTextView.setText(Prevalent.currentonlineUser.getFirstName());
-        Picasso.get().load(Prevalent.currentonlineUser.getImage()).placeholder(R.drawable.contacts_30px).into(profileImageView);
+        //System.out.println(Prevalent.currentonlineUser.getFirstName());
+        if(!type.equals("Admins")) {
+
+
+
+//            userNameTextView.setText(Prevalent.currentonlineUser.getFirstName());
+//            //System.out.println(Prevalent.currentonlineUser.getFirstName());
+//            Picasso.get().load(Prevalent.currentonlineUser.getImage()).placeholder(R.drawable.person).into(profileImageView);
+        }
+        else{
+
+        }
+
+
+
+
+
 
 
         cart=findViewById(R.id.cart);
@@ -99,15 +140,20 @@ public class userprofile extends AppCompatActivity
     }
 
 
+
     @Override
     protected void onStart()
     {
         super.onStart();
 
+
+
+
+
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
-                .setQuery(ProductRef, Products.class)
-                .build();
+                        .setQuery(ProductRef, Products.class)
+                        .build();
 
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
@@ -124,9 +170,19 @@ public class userprofile extends AppCompatActivity
                             @Override
                             public void onClick(View view)
                             {
-                                Intent intent = new Intent(userprofile.this, ProductDetailsActivity.class);
-                                intent.putExtra("pid", model.getPid());
-                                startActivity(intent);
+                                if(type.equals("Admins"))
+                                {
+                                    Intent intent = new Intent(userprofile.this, AdminMaintainProductActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Intent intent = new Intent(userprofile.this, ProductDetailsActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
+
 
                             }
                         });
@@ -156,8 +212,10 @@ public class userprofile extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if(type.equals("Admins")){
             super.onBackPressed();
+        }else{
+
         }
     }
 
@@ -189,18 +247,33 @@ public class userprofile extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_cart) {
+        if (id == R.id.nav_cart)
+        {
+            if(!type.equals("Admins"))
+            {
+                Intent intent = new Intent(this,cartActivity.class);
+                startActivity(intent);
+            }
+
 
         } else if (id == R.id.nav_search) {
-            Intent intent = new Intent(this,Search.class);
+            if(!type.equals("Admins")) {
+                Intent intent = new Intent(this, Search.class);
+                startActivity(intent);
+            }
+
+        }else if(id==R.id.nav_centers){
+
+            Intent intent = new Intent(this,ListCompany_User.class);
             startActivity(intent);
+        }
+        else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_categories) {
-
-        } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this,Settings.class);
-            startActivity(intent);
-
+            if(!type.equals("Admins"))
+            {
+                Intent intent = new Intent(this,Settings.class);
+                startActivity(intent);
+            }
 
 
         } else if (id == R.id.nav_close_logout) {
@@ -217,5 +290,11 @@ public class userprofile extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }
+
+
+
 

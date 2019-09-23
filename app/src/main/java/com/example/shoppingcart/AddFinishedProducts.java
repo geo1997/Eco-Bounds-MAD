@@ -1,5 +1,6 @@
 package com.example.shoppingcart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -40,12 +41,14 @@ public class AddFinishedProducts extends AppCompatActivity {
     private String productRandomKey, downloadImageUrl;
     private StorageReference ProductImageRef;
     private DatabaseReference ProductsRef;
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_finished_products);
 
+        loadingBar=new ProgressDialog(this);
         categoryName = getIntent().getExtras().get("category").toString();
         ProductImageRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
@@ -68,6 +71,10 @@ public class AddFinishedProducts extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                loadingBar.setTitle("Adding New Product");
+                loadingBar.setMessage("Please Wait...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
                 ValidateProductData();
             }
         });
@@ -81,18 +88,22 @@ public class AddFinishedProducts extends AppCompatActivity {
 
         if (ImageUri == null)
         {
+            loadingBar.dismiss();
             Toast.makeText(this, "Product Image Is Required", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Description))
         {
+            loadingBar.dismiss();
             Toast.makeText(this, "Please Enter The Product Description", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Price))
         {
+            loadingBar.dismiss();
             Toast.makeText(this, "Please Enter The Product Price", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Pname))
         {
+            loadingBar.dismiss();
             Toast.makeText(this, "Please Enter The Product Name", Toast.LENGTH_SHORT).show();
         }
         else
@@ -120,14 +131,14 @@ public class AddFinishedProducts extends AppCompatActivity {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                loadingBar.dismiss();
                 String message = e.toString();
                 Toast.makeText(AddFinishedProducts.this, "Error: " + message, Toast.LENGTH_SHORT).show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                loadingBar.dismiss();
                 Toast.makeText(AddFinishedProducts.this, "Product Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
@@ -179,6 +190,7 @@ public class AddFinishedProducts extends AppCompatActivity {
 
                         if(task.isSuccessful())
                         {
+                            loadingBar.dismiss();
                             Intent intent = new Intent(AddFinishedProducts.this, AdminCategoryActivity.class);
                             startActivity(intent);
 
@@ -186,6 +198,7 @@ public class AddFinishedProducts extends AppCompatActivity {
                         }
                         else
                         {
+                            loadingBar.dismiss();
                             String message = task.getException().toString();
                             Toast.makeText(AddFinishedProducts.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                         }

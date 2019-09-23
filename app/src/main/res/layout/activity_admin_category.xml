@@ -93,5 +93,21 @@
     </LinearLayout>
 
 
+     <Button
+         android:id="@+id/maintain_product_btn"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/linear2"
+         android:text="@string/editp"
+         android:layout_marginLeft="45dp"
+         android:layout_marginRight="45dp"
+         android:padding="17dp"
+         android:layout_marginTop="120dp"
+         android:textSize="18dp"
+         android:textAllCaps="false"
+         android:textColor="@color/white"
+         android:background="@drawable/buttons"
+         ></Button>
+
 
 </RelativeLayout>

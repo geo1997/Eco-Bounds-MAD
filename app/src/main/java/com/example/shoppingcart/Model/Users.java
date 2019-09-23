@@ -1,6 +1,7 @@
 package com.example.shoppingcart.Model;
 
-public class Users {
+public class
+Users {
 
     private String FirstName;
     private String LastName;
