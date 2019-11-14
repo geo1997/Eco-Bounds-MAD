@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "37461357154-d23dtimrd7ehskm38505rhu2tdia5efu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shoppingcart",
+            "certificate_hash": "4b6ccf37e38bc291a2f68ea27c69160b1ee13e64"
+          }
+        },
+        {
+          "client_id": "37461357154-cd9vlc4ef9m0tjf99hcjubvhsv3g0cu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shoppingcart",
+            "certificate_hash": "dc1e60038cfaf2d1999cdb35b20795163210af2a"
+          }
+        },
+        {
           "client_id": "37461357154-q7h69noe44ttgrhgl18d1mvraj1obmjg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

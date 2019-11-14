@@ -13,81 +13,104 @@
         android:theme="@style/AppTheme">
         <activity android:name=".IntroScreen"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".ResetPassword"
-            android:exported="true"/>
-        <activity android:name=".UpdateCompany" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UpdateCompany"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ListCompany_User"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AdminMaintainProductActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".CompanyList"
             android:exported="true"
-            android:parentActivityName=".AdminActivity" />
-        <activity android:name=".AdminUserProductsActivity" />
+            android:parentActivityName=".AdminActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AdminUserProductsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AddFinishedProducts"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AdminActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AdminCategoryActivity"
             android:exported="true"
-            android:parentActivityName=".AdminActivity" />
+            android:parentActivityName=".AdminActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AdminNewOrdersActivity"
             android:exported="true"
-            android:parentActivityName=".AdminActivity" />
+            android:parentActivityName=".AdminActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".cartActivity"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".CompanyProfile"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ConfirmFinalOrderActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PaymentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ProductDetailsActivity"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterCompany"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Search"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Settings"
             android:exported="true"
-            android:parentActivityName=".userprofile" />
+            android:parentActivityName=".userprofile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".signup"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".userprofile"
             android:exported="true"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".WelcomePage"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
