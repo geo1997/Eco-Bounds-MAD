@@ -52,7 +52,7 @@ public class ResetPassword extends AppCompatActivity {
 
         phoneNo.setVisibility(View.GONE);
 
-        if (check.equals("Settings"))
+        if ("Settings".equals(check))
         {
             pageTitle.setText("Set Questions");
             titleQues.setText("Answer the following security questions");
@@ -147,7 +147,7 @@ public class ResetPassword extends AppCompatActivity {
         final String answer1 = ques1.getText().toString().toLowerCase();
         final String answer2 = ques2.getText().toString().toLowerCase();
 
-        if (!phone.equals("") && !answer1.equals("") && !answer2.equals(""))
+        if (!"".equals(phone) && !"".equals(answer1) && !"".equals(answer2))
         {
             final DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(phone);
             ref.addValueEventListener(new ValueEventListener() {

@@ -106,7 +106,7 @@ public class userprofile extends AppCompatActivity
 //        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_i);
 
         //System.out.println(Prevalent.currentonlineUser.getFirstName());
-        if(!type.equals("Admins")) {
+        if(!"Admins".equals(type)) {
 
 
 
@@ -212,7 +212,7 @@ public class userprofile extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if(type.equals("Admins")){
+        } else if("Admins".equals(type)){
             super.onBackPressed();
         }else{
 
@@ -249,7 +249,7 @@ public class userprofile extends AppCompatActivity
 
         if (id == R.id.nav_cart)
         {
-            if(!type.equals("Admins"))
+            if(!"Admins".equals(type))
             {
                 Intent intent = new Intent(this,cartActivity.class);
                 startActivity(intent);
@@ -257,7 +257,7 @@ public class userprofile extends AppCompatActivity
 
 
         } else if (id == R.id.nav_search) {
-            if(!type.equals("Admins")) {
+            if(!"Admins".equals(type)) {
                 Intent intent = new Intent(this, Search.class);
                 startActivity(intent);
             }
@@ -269,7 +269,7 @@ public class userprofile extends AppCompatActivity
         }
         else if (id == R.id.nav_settings) {
 
-            if(!type.equals("Admins"))
+            if(!"Admins".equals(type))
             {
                 Intent intent = new Intent(this,Settings.class);
                 startActivity(intent);

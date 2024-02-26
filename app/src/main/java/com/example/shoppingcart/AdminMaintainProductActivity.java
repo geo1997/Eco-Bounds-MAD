@@ -88,15 +88,15 @@ public class AdminMaintainProductActivity extends AppCompatActivity {
         String pPrice = price.getText().toString();
         String pDescription = description.getText().toString();
 
-        if (pName.equals(""))
+        if ("".equals(pName))
         {
             Toast.makeText(this, "Write down Product Name", Toast.LENGTH_SHORT).show();
         }
-        else if (pPrice.equals(""))
+        else if ("".equals(pPrice))
         {
             Toast.makeText(this, "Write down Product Price", Toast.LENGTH_SHORT).show();
         }
-        else if (pDescription.equals(""))
+        else if ("".equals(pDescription))
         {
             Toast.makeText(this, "Write down Product Description", Toast.LENGTH_SHORT).show();
         }

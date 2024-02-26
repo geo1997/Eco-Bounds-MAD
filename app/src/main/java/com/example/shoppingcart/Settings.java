@@ -286,7 +286,7 @@ public class Settings extends AppCompatActivity {
             loadingBar.dismiss();
             Toast.makeText(this,"Address is mandatory",Toast.LENGTH_SHORT).show();
         }
-        else if (checker.equals("clicked"))
+        else if ("clicked".equals(checker))
         {
             uploadImage();
         }
